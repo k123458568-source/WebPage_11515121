@@ -1,450 +1,2486 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="藍天咖啡，為手沖咖啡愛好者挑選當季精品咖啡豆，讓每一杯都清澈、明亮、值得細品。">
-  <title>藍天咖啡｜讓風味，慢慢抵達</title>
+  <meta name="description" content="腦丼大開 - 日本本格海鮮丼專門店。現撈極鮮漁獲、產地直送、厚切生魚片與北海道馬糞海膽，為在台日本留學生與海鮮愛好者獻上一碗入魂的家鄉味！">
+  <title>腦丼大開｜本格日式海鮮丼專門店・現撈極鮮海味</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700;800;900&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@600;700;900&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --navy: #062742;
-      --blue: #0c5b95;
-      --sky: #75c6e8;
-      --mist: #eaf5f7;
-      --cream: #fbfaf6;
-      --ink: #122534;
-      --muted: #607482;
-      --line: #d7e4e8;
-      --sand: #e5b66b;
-      --shadow: 0 18px 50px rgba(6, 39, 66, .13);
+      --primary-red: #E63946;        /* 鮪魚赤身紅 */
+      --primary-red-hover: #D62839;
+      --salmon-orange: #FF7A00;     /* 鮭魚橙 / 鮭魚卵 */
+      --uni-gold: #F4A261;          /* 極上海膽金 */
+      --gold-accent: #E9C46A;       /* 貴氣金箔黃 */
+      --wasabi-green: #2A9D8F;      /* 紫蘇山葵翠綠 */
+      --wasabi-light: #E7F6F3;
+      --deep-ocean: #1D3557;        /* 築地深海藍 */
+      --ocean-navy: #0F1F38;        /* 頁尾與深色背景 */
+      --sea-blue: #457B9D;          /* 浪花水藍 */
+      --rice-white: #FCFBF7;        /* 越光米暖白 */
+      --card-bg: #FFFFFF;
+      --text-dark: #1E252B;         /* 炭黑墨色 */
+      --text-muted: #5C6773;        /* 灰調輔助色 */
+      --border-line: #E8ECEF;
+      --shadow-sm: 0 4px 12px rgba(29, 53, 87, 0.08);
+      --shadow-md: 0 12px 28px rgba(29, 53, 87, 0.12);
+      --shadow-lg: 0 20px 48px rgba(29, 53, 87, 0.18);
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      color: var(--ink);
-      background: var(--cream);
-      font: 16px/1.7 "Noto Sans TC", sans-serif;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--rice-white);
+      color: var(--text-dark);
+      font-family: 'Noto Sans TC', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: inherit; text-decoration: none; }
-    button, input { font: inherit; }
-    button { cursor: pointer; }
-    .wrap { width: min(1120px, calc(100% - 48px)); margin: 0 auto; }
-    .eyebrow {
+
+    h1, h2, h3, h4, .serif-font {
+      font-family: 'Noto Serif TC', serif;
+    }
+
+    .jp-font {
+      font-family: 'Zen Maru Gothic', sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+    }
+
+    .container {
+      width: min(1200px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    /* Badge & Utility Styles */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .badge-primary {
+      background: rgba(230, 57, 70, 0.12);
+      color: var(--primary-red);
+      border: 1px solid rgba(230, 57, 70, 0.25);
+    }
+
+    .badge-gold {
+      background: rgba(233, 196, 106, 0.2);
+      color: #9A6D00;
+      border: 1px solid rgba(233, 196, 106, 0.5);
+    }
+
+    .badge-green {
+      background: var(--wasabi-light);
+      color: var(--wasabi-green);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 28px;
+      border-radius: var(--radius-full);
+      font-size: 15px;
+      font-weight: 700;
+      transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-red {
+      background: linear-gradient(135deg, var(--primary-red), #FF4D6D);
+      color: #FFF;
+      box-shadow: 0 8px 20px rgba(230, 57, 70, 0.35);
+    }
+
+    .btn-red:hover {
+      box-shadow: 0 12px 24px rgba(230, 57, 70, 0.45);
+      background: linear-gradient(135deg, #D62839, #E63946);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-accent), var(--salmon-orange));
+      color: #0F1F38;
+      box-shadow: 0 8px 20px rgba(255, 122, 0, 0.25);
+    }
+
+    .btn-outline-light {
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFF;
+      border: 1.5px solid rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-outline-light:hover {
+      background: #FFF;
+      color: var(--deep-ocean);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 50px;
+    }
+
+    .section-header .sub-title {
+      color: var(--primary-red);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .section-header h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--deep-ocean);
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    /* Announcement Banner (留學生專屬公告) */
+    .top-banner {
+      background: linear-gradient(90deg, #1D3557 0%, #FF7A00 50%, #E63946 100%);
+      color: #FFF;
+      padding: 9px 16px;
+      font-size: 13px;
+      text-align: center;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .top-banner strong {
+      background: rgba(255, 255, 255, 0.25);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin: 0 6px;
+    }
+
+    /* Navigation Header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(252, 251, 247, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-line);
+      transition: all 0.3s ease;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 78px;
+    }
+
+    .brand-logo {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin: 0 0 18px;
-      color: var(--blue);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .18em;
     }
-    .eyebrow::before { width: 28px; height: 1px; background: currentColor; content: ""; }
-    .section-title {
-      margin: 0;
-      font: 800 clamp(30px, 4vw, 46px)/1.28 "Noto Serif TC", serif;
-      letter-spacing: .045em;
-    }
-    .text-blue { color: var(--blue); }
-    .button, .outline-link {
-      display: inline-flex;
-      min-height: 50px;
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary-red), var(--salmon-orange));
+      display: flex;
       align-items: center;
       justify-content: center;
-      padding: 10px 23px;
-      border: 1px solid transparent;
+      color: #FFF;
+      font-size: 22px;
+      box-shadow: 0 4px 14px rgba(230, 57, 70, 0.3);
+    }
+
+    .brand-text h1 {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--deep-ocean);
+      letter-spacing: 0.06em;
+      line-height: 1.1;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 10px;
+      color: var(--primary-red);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-link {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--deep-ocean);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.2s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2.5px;
+      background: var(--salmon-orange);
+      transition: width 0.25s ease;
       border-radius: 2px;
+    }
+
+    .nav-link:hover {
+      color: var(--primary-red);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .cart-btn {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #FFF;
+      border: 1.5px solid var(--border-line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--deep-ocean);
+      transition: all 0.2s;
+    }
+
+    .cart-btn:hover {
+      border-color: var(--primary-red);
+      color: var(--primary-red);
+    }
+
+    .cart-badge {
+      position: absolute;
+      top: -3px;
+      right: -3px;
+      background: var(--primary-red);
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 700;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      background: transparent;
+      color: var(--deep-ocean);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, #0F1F38 0%, #1D3557 60%, #2A486E 100%);
+      color: #FFF;
+      padding: 90px 0 110px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 122, 0, 0.25) 0%, rgba(230, 57, 70, 0.1) 50%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(50px);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -5%;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, rgba(42, 157, 143, 0.25) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      color: var(--gold-accent);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    .hero-title {
+      font-size: clamp(38px, 5.2vw, 62px);
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 22px;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-title .highlight-red {
+      color: #FF5A69;
+    }
+
+    .hero-desc {
+      font-size: 17px;
+      color: rgba(255, 255, 255, 0.86);
+      max-width: 520px;
+      margin-bottom: 34px;
+      line-height: 1.8;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .hero-features-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+
+    .hero-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 600;
+    }
+
+    .hero-feature-item .icon {
+      font-size: 18px;
+      color: var(--salmon-orange);
+    }
+
+    /* 海鮮丼視覺卡片 */
+    .hero-visual-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(16px);
+      border-radius: var(--radius-lg);
+      padding: 36px 30px;
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .donburi-illustration {
+      width: 280px;
+      height: 280px;
+      margin: 0 auto 20px;
+      position: relative;
+      filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.45));
+    }
+
+    .floating-pill {
+      position: absolute;
+      background: #FFF;
+      color: var(--deep-ocean);
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 12px;
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 10;
+    }
+
+    .pill-top-left {
+      top: 10px;
+      left: -15px;
+      border-left: 4px solid var(--primary-red);
+    }
+
+    .pill-bottom-right {
+      bottom: 20px;
+      right: -15px;
+      border-left: 4px solid var(--gold-accent);
+    }
+
+    .visual-dish-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFF;
+      margin-bottom: 6px;
+    }
+
+    .visual-dish-sub {
+      font-size: 13px;
+      color: var(--gold-accent);
+      margin-bottom: 12px;
+    }
+
+    .visual-price-tag {
+      font-size: 26px;
+      font-weight: 900;
+      color: #FF7A00;
+    }
+
+    /* Live Fresh Board */
+    .fresh-board-section {
+      margin-top: -40px;
+      position: relative;
+      z-index: 20;
+    }
+
+    .fresh-board {
+      background: #FFF;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      padding: 24px 32px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+      border: 1px solid var(--border-line);
+    }
+
+    .fresh-board-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-right: 24px;
+      border-right: 2px solid var(--border-line);
+    }
+
+    .fresh-pulse {
+      width: 14px;
+      height: 14px;
+      background: var(--primary-red);
+      border-radius: 50%;
+      box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7);
+      animation: pulseAnim 1.8s infinite;
+    }
+
+    @keyframes pulseAnim {
+      0% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(230, 57, 70, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(230, 57, 70, 0); }
+    }
+
+    .fresh-board-label h3 {
+      font-size: 17px;
+      color: var(--deep-ocean);
+      font-weight: 800;
+    }
+
+    .fresh-board-label span {
+      font-size: 11px;
+      color: var(--text-muted);
+      display: block;
+    }
+
+    .fresh-items-marquee {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .fresh-item-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       font-size: 14px;
       font-weight: 700;
-      letter-spacing: .04em;
-      transition: transform .25s ease, background-color .25s ease, color .25s ease, border-color .25s ease;
+      color: var(--text-dark);
+      white-space: nowrap;
     }
-    .button:hover, .outline-link:hover { transform: translateY(-2px); }
-    .button--sand { color: var(--navy); background: var(--sand); }
-    .button--sand:hover { background: #f1cb8b; }
-    .button--dark { color: var(--navy); background: #fff; }
-    .outline-link { border-color: rgba(255,255,255,.72); color: #fff; }
-    .outline-link:hover { color: var(--navy); background: #fff; }
-    :focus-visible { outline: 3px solid var(--sky); outline-offset: 4px; }
 
-    /* Header & hero */
-    .site-header { position: absolute; z-index: 20; top: 0; left: 0; width: 100%; border-bottom: 1px solid rgba(255,255,255,.28); }
-    .nav { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { display: inline-flex; align-items: center; gap: 11px; color: #fff; }
-    .brand-mark { width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid var(--sky); border-radius: 50%; color: var(--sky); font: 700 16px/1 "Playfair Display", serif; }
-    .brand-copy { display: grid; line-height: 1.05; }
-    .brand-copy strong { font-size: 13px; letter-spacing: .08em; }
-    .brand-copy small { margin-top: 4px; font-size: 8px; letter-spacing: .18em; opacity: .7; }
-    .nav-links { display: flex; align-items: center; gap: clamp(16px, 2.4vw, 31px); }
-    .nav-links a { position: relative; color: #fff; font-size: 13px; font-weight: 500; white-space: nowrap; }
-    .nav-links a:not(.nav-cta)::after { position: absolute; right: 0; bottom: -5px; left: auto; width: 0; height: 1px; background: var(--sky); content: ""; transition: width .25s ease; }
-    .nav-links a:not(.nav-cta):hover::after { right: auto; left: 0; width: 100%; }
-    .nav-links .nav-cta { padding: 8px 13px; border: 1px solid rgba(255,255,255,.72); }
-    .nav-links .nav-cta:hover { color: var(--navy); background: #fff; }
-    .menu-toggle { display: none; width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.7); color: #fff; background: transparent; font-size: 23px; line-height: 1; }
-
-    .hero { position: relative; min-height: 704px; overflow: hidden; color: #fff; background: var(--navy); isolation: isolate; }
-    .hero::before { position: absolute; z-index: -2; top: -320px; right: -210px; width: 810px; height: 810px; border-radius: 50%; background: radial-gradient(circle, rgba(117,198,232,.38), rgba(12,91,149,.18) 38%, transparent 69%); content: ""; }
-    .hero::after { position: absolute; z-index: -1; right: 12%; bottom: -430px; width: 780px; height: 780px; border: 1px solid rgba(117,198,232,.18); border-radius: 50%; box-shadow: 0 0 0 65px rgba(117,198,232,.035), 0 0 0 154px rgba(117,198,232,.025); content: ""; }
-    .hero-grid { min-height: 704px; display: grid; grid-template-columns: 1.02fr .98fr; gap: 45px; align-items: center; padding: 122px 0 72px; }
-    .hero-copy { position: relative; z-index: 2; }
-    .hero .eyebrow { color: var(--sky); }
-    .hero h1 { max-width: 650px; margin: 0 0 23px; font: 800 clamp(42px, 5.5vw, 68px)/1.22 "Noto Serif TC", serif; letter-spacing: .05em; }
-    .hero h1 span { color: var(--sky); }
-    .hero-lede { max-width: 500px; margin: 0; color: rgba(255,255,255,.79); font-size: 16px; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 31px; }
-    .hero-note { margin: 31px 0 0; color: rgba(255,255,255,.55); font: 600 11px/1.5 "Playfair Display", serif; letter-spacing: .16em; }
-    .scroll-cue { position: absolute; bottom: 35px; left: 0; display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.63); font-size: 10px; font-weight: 600; letter-spacing: .18em; }
-    .scroll-cue::before { width: 38px; height: 1px; background: var(--sky); content: ""; }
-
-    .hero-art { position: relative; align-self: stretch; min-height: 470px; overflow: hidden; }
-    .hero-art .sun { position: absolute; top: 52px; right: 54px; width: clamp(138px, 18vw, 200px); aspect-ratio: 1; border-radius: 50%; background: #b9e8f5; box-shadow: 0 0 0 27px rgba(117,198,232,.09), 0 0 0 59px rgba(117,198,232,.045); }
-    .mountain { position: absolute; right: -11%; bottom: 6px; width: 116%; height: 260px; transform: skewY(-9deg); transform-origin: right bottom; background: linear-gradient(146deg, transparent 0 27%, rgba(61,145,184,.36) 27.3% 48%, rgba(17,97,143,.77) 48.3%); clip-path: polygon(0 62%, 28% 20%, 44% 57%, 68% 4%, 100% 57%, 100% 100%, 0 100%); }
-    .mountain--back { right: 13%; bottom: 98px; width: 108%; height: 220px; opacity: .46; transform: skewY(-4deg); background: #2a81ae; clip-path: polygon(0 84%, 31% 30%, 45% 62%, 66% 9%, 100% 66%, 100% 100%, 0 100%); }
-    .horizon { position: absolute; right: -4%; bottom: 0; width: 116%; height: 112px; background: linear-gradient(90deg, rgba(7,45,75,.5), #0d5684); transform: skewY(-4deg); }
-    .coffee-vessel { position: absolute; z-index: 4; right: 18%; bottom: 36px; width: 192px; height: 274px; filter: drop-shadow(18px 22px 14px rgba(0,0,0,.22)); }
-    .vessel-neck { position: absolute; top: 0; left: 62px; width: 68px; height: 42px; border: 7px solid #b3e2ef; border-bottom: 0; border-radius: 50% 50% 0 0; background: rgba(6,39,66,.62); }
-    .vessel-body { position: absolute; top: 33px; left: 18px; width: 150px; height: 212px; border: 7px solid #b3e2ef; border-radius: 31% 31% 42% 42% / 12% 12% 37% 37%; background: linear-gradient(90deg, rgba(30,112,151,.9), rgba(5,35,60,.9) 45%, rgba(83,167,198,.8)); overflow: hidden; }
-    .vessel-body::before { position: absolute; top: 15px; left: 0; width: 100%; height: 5px; background: rgba(197,237,244,.8); box-shadow: 0 48px rgba(197,237,244,.25), 0 95px rgba(197,237,244,.18), 0 145px rgba(197,237,244,.13); content: ""; }
-    .vessel-body::after { position: absolute; top: 5px; left: 48%; width: 24px; height: 200px; border-radius: 50%; background: rgba(218,247,251,.17); content: ""; }
-    .vessel-handle { position: absolute; right: 0; bottom: 49px; width: 62px; height: 98px; border: 10px solid #a9dce9; border-left: 0; border-radius: 0 53px 53px 0; }
-    .art-label { position: absolute; z-index: 5; right: 0; bottom: 64px; display: grid; gap: 3px; color: rgba(255,255,255,.73); font-size: 11px; letter-spacing: .1em; text-align: right; }
-    .art-label strong { color: var(--sky); font: 700 22px/1 "Playfair Display", serif; }
-
-    /* Story */
-    .story { padding: 118px 0; background: #fff; }
-    .story-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(45px, 8vw, 105px); align-items: center; }
-    .story-visual { position: relative; min-height: 416px; }
-    .seal { position: absolute; top: 0; left: 0; width: 310px; height: 310px; display: grid; place-items: center; border: 1px solid #a8d2df; border-radius: 50%; color: var(--blue); background: radial-gradient(circle at 35% 30%, #fff 0, #eaf6f8 68%, #d9edf1 100%); }
-    .seal::before, .seal::after { position: absolute; border: 1px solid rgba(12,91,149,.25); border-radius: 50%; content: ""; }
-    .seal::before { inset: 17px; }
-    .seal::after { inset: 44px; border-style: dashed; }
-    .seal-inner { position: relative; z-index: 1; display: grid; gap: 7px; text-align: center; }
-    .seal-inner b { font: 700 42px/1 "Playfair Display", serif; }
-    .seal-inner span { font-size: 13px; font-weight: 700; letter-spacing: .1em; }
-    .seal-inner small { font: 600 9px/1.5 "Playfair Display", serif; letter-spacing: .15em; }
-    .blue-note { position: absolute; right: 0; bottom: 0; width: 235px; padding: 27px 28px; color: #fff; background: var(--navy); box-shadow: var(--shadow); }
-    .blue-note .eyebrow { margin-bottom: 9px; color: var(--sky); font-size: 9px; }
-    .blue-note p { margin: 0; font: 700 20px/1.55 "Noto Serif TC", serif; letter-spacing: .05em; }
-    .story-copy p { margin: 19px 0 0; color: var(--muted); }
-    .inline-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 24px; padding-bottom: 5px; border-bottom: 1px solid var(--blue); color: var(--blue); font-weight: 700; }
-    .inline-link:hover { color: var(--navy); }
-
-    /* Coffee collection */
-    .coffee { padding: 111px 0 120px; background: var(--mist); }
-    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 39px; }
-    .section-heading p { max-width: 370px; margin: 0; color: var(--muted); }
-    .coffee-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 19px; }
-    .coffee-card { position: relative; min-height: 384px; display: flex; flex-direction: column; overflow: hidden; padding: 30px; color: #fff; background: var(--navy); box-shadow: var(--shadow); }
-    .coffee-card:nth-child(2) { background: #106396; }
-    .coffee-card:nth-child(3) { background: #164c68; }
-    .coffee-card::after { position: absolute; right: -90px; bottom: -90px; width: 260px; height: 260px; border: 1px solid rgba(255,255,255,.24); border-radius: 50%; box-shadow: 0 0 0 27px rgba(255,255,255,.045), 0 0 0 65px rgba(255,255,255,.025); content: ""; }
-    .card-top, .coffee-card h3, .flavour, .card-footer { position: relative; z-index: 1; }
-    .card-top { color: var(--sky); font: 700 12px/1.3 "Playfair Display", serif; letter-spacing: .12em; }
-    .origin { margin: 25px 0 8px; color: rgba(255,255,255,.69); font-size: 10px; font-weight: 700; letter-spacing: .15em; }
-    .coffee-card h3 { margin: 0; font: 700 26px/1.38 "Noto Serif TC", serif; letter-spacing: .04em; }
-    .flavour { margin: 15px 0 0; color: rgba(255,255,255,.73); font-size: 14px; }
-    .card-footer { display: flex; align-items: end; justify-content: space-between; gap: 14px; margin-top: auto; }
-    .price { font: 700 15px/1.3 "Playfair Display", serif; letter-spacing: .04em; }
-    .save-coffee { padding: 0 0 5px; border: 0; border-bottom: 1px solid rgba(255,255,255,.72); color: #fff; background: transparent; font-size: 13px; font-weight: 700; white-space: nowrap; transition: color .2s, border-color .2s; }
-    .save-coffee:hover { border-color: var(--sand); color: var(--sand); }
-
-    /* Brew */
-    .brew { padding: 118px 0; background: #fff; }
-    .brew-grid { display: grid; grid-template-columns: .93fr 1.07fr; gap: clamp(42px, 8vw, 90px); align-items: center; }
-    .brew-art { position: relative; height: 414px; overflow: hidden; background: linear-gradient(136deg, #e3f4f7 0 48%, #f8fcfc 48% 100%); }
-    .brew-art::before { position: absolute; top: 37px; left: 35px; width: 68px; height: 41px; border-top: 1px solid #6cb4ce; border-bottom: 1px solid #6cb4ce; content: ""; }
-    .brew-art::after { position: absolute; top: 57px; left: 35px; width: 43px; border-top: 1px solid #6cb4ce; content: ""; }
-    .water-rings { position: absolute; top: 67px; left: 50%; width: 245px; height: 245px; border: 1px solid rgba(12,91,149,.27); border-radius: 50%; transform: translateX(-50%); box-shadow: 0 0 0 30px rgba(117,198,232,.12), 0 0 0 74px rgba(117,198,232,.065); }
-    .water-rings::before { position: absolute; top: 18px; left: 50%; width: 1px; height: 58px; background: #6bb8d1; content: ""; transform: translateX(-50%); }
-    .dripper { position: absolute; z-index: 2; top: 134px; left: 50%; width: 147px; height: 151px; border: 7px solid var(--blue); border-top: 0; background: linear-gradient(130deg, rgba(255,255,255,.85), rgba(117,198,232,.25)); clip-path: polygon(0 0, 100% 0, 74% 100%, 26% 100%); transform: translateX(-50%); }
-    .dripper::after { position: absolute; right: 32px; bottom: 19px; left: 32px; height: 33px; border-top: 2px solid rgba(12,91,149,.55); border-bottom: 2px solid rgba(12,91,149,.35); content: ""; }
-    .carafe { position: absolute; z-index: 1; bottom: 56px; left: 50%; width: 139px; height: 106px; border: 6px solid var(--blue); border-radius: 16px 16px 45% 45%; background: rgba(117,198,232,.23); transform: translateX(-50%); }
-    .carafe::before { position: absolute; top: -28px; left: 29px; width: 70px; height: 28px; border: 6px solid var(--blue); border-bottom: 0; border-radius: 50% 50% 0 0; content: ""; }
-    .brew-caption { position: absolute; right: 24px; bottom: 19px; color: var(--blue); text-align: right; }
-    .brew-caption span { display: block; font: 700 11px/1.5 "Playfair Display", serif; letter-spacing: .12em; }
-    .brew-caption strong { font: 700 24px/1.1 "Playfair Display", serif; }
-    .brew-copy > p { margin: 18px 0 25px; color: var(--muted); }
-    .brew-steps { border-top: 1px solid var(--line); }
-    .brew-step { display: grid; grid-template-columns: 52px 1fr; gap: 15px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-    .step-number { color: var(--blue); font: 700 24px/1 "Playfair Display", serif; }
-    .brew-step h3 { margin: 0; font: 700 16px/1.5 "Noto Serif TC", serif; }
-    .brew-step p { margin: 4px 0 0; color: var(--muted); font-size: 14px; }
-
-    /* Subscribe and footer */
-    .visit { position: relative; overflow: hidden; padding: 108px 0 113px; color: #fff; text-align: center; background: var(--navy); }
-    .visit::before, .visit::after { position: absolute; width: 390px; height: 390px; border: 1px solid rgba(117,198,232,.17); border-radius: 50%; content: ""; }
-    .visit::before { top: -245px; left: -153px; box-shadow: 0 0 0 45px rgba(117,198,232,.035); }
-    .visit::after { right: -170px; bottom: -260px; box-shadow: 0 0 0 50px rgba(117,198,232,.035); }
-    .visit .wrap { position: relative; z-index: 1; max-width: 715px; }
-    .visit .eyebrow { justify-content: center; color: var(--sky); }
-    .visit h2 { margin: 0; font: 800 clamp(30px, 4vw, 46px)/1.3 "Noto Serif TC", serif; letter-spacing: .045em; }
-    .visit p { max-width: 510px; margin: 19px auto 29px; color: rgba(255,255,255,.72); }
-    .subscribe-form { display: flex; min-height: 58px; border: 1px solid rgba(255,255,255,.62); }
-    .subscribe-form input { min-width: 0; flex: 1; padding: 0 18px; border: 0; color: #fff; outline: none; background: transparent; }
-    .subscribe-form input::placeholder { color: rgba(255,255,255,.56); }
-    .subscribe-form button { padding: 0 23px; border: 0; color: var(--navy); background: var(--sand); font-size: 14px; font-weight: 700; white-space: nowrap; transition: background .2s; }
-    .subscribe-form button:hover { background: #f1cb8b; }
-    .site-footer { padding: 66px 0 23px; color: rgba(255,255,255,.68); background: #031c31; }
-    .footer-grid { display: grid; grid-template-columns: 1.45fr .8fr 1fr; gap: 55px; padding-bottom: 48px; }
-    .footer-brand .brand { margin-bottom: 16px; }
-    .footer-brand p { max-width: 330px; margin: 0; font-size: 14px; }
-    .footer-title { margin: 0 0 14px; color: var(--sky); font-size: 11px; font-weight: 700; letter-spacing: .18em; }
-    .footer-links { display: grid; gap: 8px; font-size: 14px; }
-    .footer-links a:hover { color: var(--sky); }
-    .footer-links address { font-style: normal; }
-    .footer-bottom { display: flex; justify-content: space-between; gap: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.17); color: rgba(255,255,255,.44); font: 600 10px/1.5 "Playfair Display", serif; letter-spacing: .1em; }
-
-    .toast { position: fixed; z-index: 50; right: 22px; bottom: 22px; max-width: min(370px, calc(100vw - 44px)); padding: 14px 18px; border-left: 3px solid var(--sand); color: #fff; background: var(--navy); box-shadow: var(--shadow); font-size: 14px; opacity: 0; pointer-events: none; transform: translateY(12px); transition: opacity .25s ease, transform .25s ease; }
-    .toast.show { opacity: 1; transform: translateY(0); }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .65s ease, transform .65s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    @media (max-width: 820px) {
-      .menu-toggle { display: grid; place-items: center; }
-      .nav { position: relative; }
-      .nav-links { position: absolute; top: 78px; right: -24px; left: -24px; max-height: 0; display: grid; gap: 0; overflow: hidden; background: #05233c; transition: max-height .35s ease; }
-      .nav-links.open { max-height: 300px; border-top: 1px solid rgba(255,255,255,.16); }
-      .nav-links a { display: block; padding: 13px 24px; }
-      .nav-links .nav-cta { margin: 5px 24px 15px; padding: 10px 13px; text-align: center; }
-      .hero { min-height: 710px; }
-      .hero-grid { min-height: 710px; grid-template-columns: 1fr; gap: 0; padding: 118px 0 43px; }
-      .hero-art { min-height: 276px; margin-top: -9px; }
-      .hero-art .sun { top: 19px; right: 20%; width: 130px; }
-      .mountain { height: 180px; }
-      .mountain--back { bottom: 69px; height: 150px; }
-      .coffee-vessel { right: 17%; bottom: -12px; transform: scale(.72); transform-origin: bottom right; }
-      .art-label { display: none; }
-      .scroll-cue { display: none; }
-      .story-grid, .brew-grid { grid-template-columns: 1fr; }
-      .story-visual { max-width: 525px; width: 100%; min-height: 400px; }
-      .coffee-grid { grid-template-columns: repeat(2, 1fr); }
-      .coffee-card:nth-child(3) { grid-column: span 2; }
-      .footer-grid { grid-template-columns: 1fr 1fr; }
-      .footer-brand { grid-column: 1 / -1; }
+    .fresh-item-tag span.badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--wasabi-green);
     }
-    @media (max-width: 560px) {
-      .wrap { width: calc(100% - 34px); }
-      .nav-links { right: -17px; left: -17px; }
-      .hero { min-height: 680px; }
-      .hero-grid { min-height: 680px; padding-top: 106px; }
-      .hero h1 { font-size: 40px; }
-      .hero-lede { font-size: 14px; }
-      .hero-actions { gap: 9px; margin-top: 24px; }
-      .hero-actions .button, .hero-actions .outline-link { min-height: 46px; padding: 8px 15px; font-size: 13px; }
-      .hero-note { margin-top: 21px; }
-      .hero-art { min-height: 219px; }
-      .hero-art .sun { width: 92px; }
-      .coffee-vessel { right: 5%; bottom: -48px; transform: scale(.57); }
-      .story, .coffee, .brew { padding: 76px 0; }
-      .seal { width: 245px; height: 245px; }
-      .seal-inner b { font-size: 35px; }
-      .story-visual { min-height: 347px; }
-      .blue-note { width: 185px; padding: 20px; }
-      .blue-note p { font-size: 16px; }
-      .section-heading { display: block; margin-bottom: 28px; }
-      .section-heading p { margin-top: 14px; font-size: 14px; }
-      .coffee-grid { grid-template-columns: 1fr; }
-      .coffee-card, .coffee-card:nth-child(3) { min-height: 330px; grid-column: auto; }
-      .coffee-card { padding: 25px; }
-      .brew-art { height: 310px; }
-      .water-rings { top: 45px; width: 178px; height: 178px; box-shadow: 0 0 0 23px rgba(117,198,232,.12), 0 0 0 53px rgba(117,198,232,.065); }
-      .dripper { top: 95px; transform: translateX(-50%) scale(.75); }
-      .carafe { bottom: 37px; transform: translateX(-50%) scale(.75); }
-      .visit { padding: 76px 0; }
-      .subscribe-form { display: grid; gap: 0; border: 0; }
-      .subscribe-form input { min-height: 54px; border: 1px solid rgba(255,255,255,.62); }
-      .subscribe-form button { min-height: 54px; margin-top: 10px; }
-      .footer-grid { grid-template-columns: 1fr; gap: 33px; }
-      .footer-brand { grid-column: auto; }
-      .footer-bottom { display: grid; gap: 8px; }
+
+    .fresh-board-action .btn {
+      padding: 10px 20px;
+      font-size: 13px;
     }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
-      .reveal { opacity: 1; transform: none; }
+
+    /* Brand Philosophy */
+    .brand-values {
+      padding: 110px 0 90px;
+      background: var(--rice-white);
+    }
+
+    .value-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .value-card {
+      background: #FFF;
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-line);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary-red);
+    }
+
+    .value-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary-red), var(--salmon-orange));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .value-card:hover::before {
+      opacity: 1;
+    }
+
+    .value-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .value-card:nth-child(1) .value-icon { background: rgba(230, 57, 70, 0.12); color: var(--primary-red); }
+    .value-card:nth-child(2) .value-icon { background: rgba(255, 122, 0, 0.12); color: var(--salmon-orange); }
+    .value-card:nth-child(3) .value-icon { background: rgba(233, 196, 106, 0.25); color: #B38600; }
+    .value-card:nth-child(4) .value-icon { background: rgba(42, 157, 143, 0.12); color: var(--wasabi-green); }
+
+    .value-card h3 {
+      font-size: 19px;
+      color: var(--deep-ocean);
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+
+    .value-card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Menu Showcase */
+    .menu-section {
+      padding: 90px 0 120px;
+      background: #FFF;
+    }
+
+    .menu-filter-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 46px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 10px 24px;
+      border-radius: var(--radius-full);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--rice-white);
+      border: 1px solid var(--border-line);
+      transition: all 0.25s ease;
+    }
+
+    .filter-btn:hover {
+      color: var(--primary-red);
+      border-color: var(--primary-red);
+    }
+
+    .filter-btn.active {
+      background: var(--deep-ocean);
+      color: #FFF;
+      border-color: var(--deep-ocean);
+      box-shadow: 0 4px 14px rgba(29, 53, 87, 0.25);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .menu-card {
+      background: var(--rice-white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-line);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(230, 57, 70, 0.3);
+    }
+
+    .dish-img-wrap {
+      height: 220px;
+      background: linear-gradient(135deg, #1C2D44 0%, #2A486E 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .dish-svg-art {
+      width: 170px;
+      height: 170px;
+      transition: transform 0.4s ease;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.35));
+    }
+
+    .menu-card:hover .dish-svg-art {
+      transform: scale(1.08) rotate(2deg);
+    }
+
+    .dish-tag-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--primary-red);
+      color: #FFF;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.05em;
+    }
+
+    .dish-discount-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--gold-accent);
+      color: #0F1F38;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .dish-body {
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .dish-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+
+    .dish-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--deep-ocean);
+      line-height: 1.3;
+    }
+
+    .dish-jp-name {
+      font-size: 12px;
+      color: var(--primary-red);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .dish-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .dish-ingredients {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 20px;
+    }
+
+    .ingredient-pill {
+      font-size: 11px;
+      background: #FFF;
+      border: 1px solid #E1E6EB;
+      color: var(--text-dark);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .dish-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-line);
+    }
+
+    .dish-price-box .currency {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary-red);
+    }
+
+    .dish-price-box .price {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--primary-red);
+    }
+
+    .dish-price-box .original-price {
+      font-size: 13px;
+      color: #9CA3AF;
+      text-decoration: line-through;
+      margin-left: 6px;
+    }
+
+    .add-to-cart-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--deep-ocean);
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: all 0.2s ease;
+    }
+
+    .add-to-cart-btn:hover {
+      background: var(--primary-red);
+      transform: scale(1.08);
+    }
+
+    /* Student Special Section */
+    .student-special-section {
+      padding: 90px 0;
+      background: linear-gradient(135deg, #FFF5EB 0%, #FFE9D6 100%);
+      position: relative;
+    }
+
+    .student-box {
+      background: #FFF;
+      border-radius: var(--radius-lg);
+      padding: 50px 60px;
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 50px;
+      align-items: center;
+      border: 2px solid #FFD3AC;
+    }
+
+    .student-badge-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FF7A00;
+      color: #FFF;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    .student-content h2 {
+      font-size: clamp(28px, 3.6vw, 38px);
+      color: var(--deep-ocean);
+      margin-bottom: 16px;
+      line-height: 1.3;
+    }
+
+    .student-content p {
+      font-size: 15.5px;
+      color: var(--text-dark);
+      margin-bottom: 24px;
+      line-height: 1.8;
+    }
+
+    .student-perks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 30px;
+    }
+
+    .perk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #FFF9F3;
+      padding: 14px;
+      border-radius: var(--radius-sm);
+      border: 1px solid #FFE6CE;
+    }
+
+    .perk-icon {
+      font-size: 22px;
+      color: var(--salmon-orange);
+    }
+
+    .perk-text h4 {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--deep-ocean);
+      margin-bottom: 2px;
+    }
+
+    .perk-text span {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .student-visual-card {
+      background: linear-gradient(135deg, #1D3557, #0F1F38);
+      color: #FFF;
+      border-radius: var(--radius-md);
+      padding: 34px 28px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+
+    .student-card-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--gold-accent);
+      margin-bottom: 8px;
+    }
+
+    .student-card-sub {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 24px;
+    }
+
+    .student-quote {
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 3px solid var(--salmon-orange);
+      padding: 16px 20px;
+      border-radius: 4px;
+      text-align: left;
+      font-size: 13.5px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .student-signature {
+      font-size: 12px;
+      color: var(--gold-accent);
+      font-weight: 700;
+      text-align: right;
+    }
+
+    /* Customer Reviews */
+    .reviews-section {
+      padding: 100px 0;
+      background: var(--rice-white);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .review-card {
+      background: #FFF;
+      border-radius: var(--radius-md);
+      padding: 30px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .review-stars {
+      color: #FFB703;
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+
+    .review-content {
+      font-size: 14.5px;
+      color: var(--text-dark);
+      line-height: 1.75;
+      margin-bottom: 24px;
+      flex: 1;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-line);
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--salmon-orange), var(--primary-red));
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .author-info h4 {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--deep-ocean);
+    }
+
+    .author-info span {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* Reservation & Ordering Section */
+    .booking-section {
+      padding: 100px 0;
+      background: #FFF;
+    }
+
+    .booking-box {
+      background: linear-gradient(135deg, #0F1F38 0%, #1D3557 100%);
+      border-radius: var(--radius-lg);
+      padding: 60px;
+      color: #FFF;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 60px;
+      align-items: center;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .booking-info h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      margin-bottom: 18px;
+      line-height: 1.3;
+    }
+
+    .booking-info p {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .info-list {
+      list-style: none;
+      display: grid;
+      gap: 16px;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 15px;
+    }
+
+    .info-list .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--gold-accent);
+    }
+
+    .booking-form {
+      background: #FFF;
+      border-radius: var(--radius-md);
+      padding: 36px 32px;
+      color: var(--text-dark);
+      box-shadow: var(--shadow-md);
+    }
+
+    .booking-form h3 {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--deep-ocean);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--deep-ocean);
+      margin-bottom: 6px;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 11px 14px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid var(--border-line);
+      background: var(--rice-white);
+      color: var(--text-dark);
+      font-size: 14px;
+      transition: border-color 0.2s;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--primary-red);
+      background: #FFF;
+    }
+
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--primary-red);
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .checkbox-label input {
+      accent-color: var(--primary-red);
+      width: 16px;
+      height: 16px;
+    }
+
+    .booking-form .btn-submit {
+      width: 100%;
+      padding: 13px;
+      font-size: 15px;
+    }
+
+    /* Footer Section */
+    .site-footer {
+      background: var(--ocean-navy);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 80px 0 30px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+
+    .footer-col h4 {
+      color: #FFF;
+      font-size: 17px;
+      font-weight: 800;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-col p {
+      font-size: 13.5px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-accent);
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      margin-bottom: 12px;
+    }
+
+    .footer-contact-item .icon {
+      color: var(--salmon-orange);
+      font-size: 16px;
+      margin-top: 3px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .social-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 16px;
+      transition: all 0.2s;
+    }
+
+    .social-icon:hover {
+      background: var(--primary-red);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* Cart Drawer */
+    .cart-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .cart-drawer-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -420px;
+      width: min(400px, 100%);
+      height: 100%;
+      background: #FFF;
+      z-index: 1001;
+      box-shadow: -5px 0 25px rgba(0, 0, 0, 0.2);
+      transition: right 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-drawer.active {
+      right: 0;
+    }
+
+    .drawer-header {
+      padding: 20px 24px;
+      background: var(--deep-ocean);
+      color: #FFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .drawer-header h3 {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .close-drawer-btn {
+      background: transparent;
+      color: #FFF;
+      font-size: 22px;
+    }
+
+    .drawer-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px 24px;
+    }
+
+    .cart-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border-line);
+    }
+
+    .cart-item-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--deep-ocean);
+    }
+
+    .cart-item-price {
+      font-size: 13px;
+      color: var(--primary-red);
+      font-weight: 700;
+    }
+
+    .drawer-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-line);
+      background: var(--rice-white);
+    }
+
+    .cart-total-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .cart-total-row .total-amount {
+      color: var(--primary-red);
+      font-size: 20px;
+    }
+
+    /* Toast Notification */
+    .toast-container {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 2000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .toast {
+      background: var(--deep-ocean);
+      color: #FFF;
+      padding: 14px 22px;
+      border-radius: var(--radius-sm);
+      box-shadow: var(--shadow-lg);
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-left: 4px solid var(--salmon-orange);
+      transform: translateY(20px);
+      opacity: 0;
+      animation: toastIn 0.3s forwards;
+    }
+
+    @keyframes toastIn {
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero-desc {
+        margin: 0 auto 34px;
+      }
+      .hero-cta-group {
+        justify-content: center;
+      }
+      .hero-features-strip {
+        justify-content: center;
+      }
+      .fresh-board {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        text-align: center;
+      }
+      .fresh-board-label {
+        border-right: none;
+        border-bottom: 2px solid var(--border-line);
+        padding-right: 0;
+        padding-bottom: 14px;
+        justify-content: center;
+      }
+      .fresh-items-marquee {
+        justify-content: center;
+      }
+      .value-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .student-box {
+        grid-template-columns: 1fr;
+        padding: 40px 30px;
+      }
+      .booking-box {
+        grid-template-columns: 1fr;
+        padding: 40px 30px;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-nav {
+        height: 68px;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .nav-menu {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: #FFF;
+        flex-direction: column;
+        padding: 24px;
+        gap: 18px;
+        border-bottom: 2px solid var(--border-line);
+        box-shadow: var(--shadow-md);
+        display: none;
+      }
+      .nav-menu.open {
+        display: flex;
+      }
+      .value-cards-grid {
+        grid-template-columns: 1fr;
+      }
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+      .student-perks {
+        grid-template-columns: 1fr;
+      }
+      .reviews-grid {
+        grid-template-columns: 1fr;
+      }
+      .form-group-row {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="site-header" id="top">
-    <nav class="nav wrap" aria-label="主要導覽">
-      <a class="brand" href="#top" aria-label="回到藍天咖啡首頁">
-        <span class="brand-mark" aria-hidden="true">B</span>
-        <span class="brand-copy"><strong>藍天咖啡</strong><small>BLUE SKY COFFEE</small></span>
+
+  <!-- 頂部公告：留學生專屬優惠 -->
+  <div class="top-banner">
+    🌊【本季漁獲直送】日本留學生憑學生證享 <strong>88折優惠</strong> ＋ 越光米醋飯、鮭魚味噌湯 <strong>免費無限續</strong>！
+  </div>
+
+  <!-- 網站導覽列 -->
+  <header class="site-header">
+    <div class="container site-nav">
+      <a href="#hero" class="brand-logo">
+        <div class="brand-icon">
+          🍣
+        </div>
+        <div class="brand-text">
+          <h1>腦丼大開</h1>
+          <span>NAODON • 本格海鮮丼専門店</span>
+        </div>
       </a>
-      <button class="menu-toggle" type="button" aria-controls="navLinks" aria-expanded="false" aria-label="開啟導覽選單">☰</button>
-      <div class="nav-links" id="navLinks">
-        <a href="#story">我們的故事</a>
-        <a href="#coffee">本季選豆</a>
-        <a href="#brew">沖煮日常</a>
-        <a class="nav-cta" href="#visit">訂閱風味通信</a>
+
+      <!-- 電腦版選單 -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about" class="nav-link">品牌精神</a></li>
+        <li><a href="#menu" class="nav-link">極鮮菜單</a></li>
+        <li><a href="#fresh" class="nav-link">產地直送</a></li>
+        <li><a href="#student" class="nav-link">留學生專區</a></li>
+        <li><a href="#reviews" class="nav-link">老饕好評</a></li>
+        <li><a href="#booking" class="nav-link">門市訂位</a></li>
+      </ul>
+
+      <!-- 右側按鈕 -->
+      <div class="nav-actions">
+        <button class="cart-btn" id="openCartBtn" title="點餐購物清單">
+          🛒
+          <span class="cart-badge" id="cartCount">0</span>
+        </button>
+        <a href="#booking" class="btn btn-red" style="padding: 10px 22px; font-size: 14px;">預約訂位</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="切換選單">☰</button>
       </div>
-    </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="hero" aria-labelledby="heroTitle">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">HAND BREWED · SLOWLY ROASTED</p>
-          <h1 id="heroTitle">讓風味，在<span>藍天</span>下慢慢抵達。</h1>
-          <p class="hero-lede">藍天咖啡為喜歡手沖的您，挑選值得細品的單一產區咖啡豆。從第一縷花香，到最後一口回甘，每一杯都有屬於自己的晴朗天氣。</p>
-          <div class="hero-actions">
-            <a class="button button--sand" href="#coffee">探索本季咖啡豆 →</a>
-            <a class="outline-link" href="#story">認識藍天</a>
+  <!-- 首屏 Hero 區 -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tagline">
+          <span>✨ 日本直輸・築地職人技術監製</span>
+        </div>
+        <h2 class="hero-title">
+          一碗入魂，<br>
+          <span class="highlight-red">腦丼大開</span> 的海味狂想！
+        </h2>
+        <p class="hero-desc">
+          嚴選每日清晨現撈極鮮漁獲、厚切頂級鮪魚大腹、爆汁三島鮭魚卵與北海道直送海膽。每一口，都讓在日本的遊子找回家鄉的鮮味，讓愛吃丼飯的您直呼過癮！
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#menu" class="btn btn-gold">
+            <span>瀏覽今日極鮮丼</span>
+            <span>👉</span>
+          </a>
+          <a href="#student" class="btn btn-outline-light">
+            <span>🎓 日本留學生暖心優惠</span>
+          </a>
+        </div>
+
+        <div class="hero-features-strip">
+          <div class="hero-feature-item">
+            <span class="icon">🐟</span>
+            <span>每日 04:00 現撈直輸</span>
           </div>
-          <p class="hero-note">TAIPEI · TAIWAN · EST. 2025</p>
-          <span class="scroll-cue">SCROLL TO DISCOVER</span>
-        </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="sun"></div>
-          <div class="mountain mountain--back"></div>
-          <div class="mountain"></div>
-          <div class="horizon"></div>
-          <div class="coffee-vessel"><div class="vessel-neck"></div><div class="vessel-body"></div><div class="vessel-handle"></div></div>
-          <div class="art-label"><strong>92°C</strong><span>理想水溫</span><span>細細喚醒香氣</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="story" id="story" aria-labelledby="storyTitle">
-      <div class="wrap story-grid">
-        <div class="story-visual reveal" aria-hidden="true">
-          <div class="seal"><div class="seal-inner"><b>B</b><span>慢一點，更清楚。</span><small>LET THE FLAVOUR SPEAK</small></div></div>
-          <aside class="blue-note"><p class="eyebrow">BLUE SKY NOTE</p><p>一杯好咖啡，從來不是匆忙完成的事。</p></aside>
-        </div>
-        <div class="story-copy reveal">
-          <p class="eyebrow">OUR PHILOSOPHY</p>
-          <h2 class="section-title" id="storyTitle">在一杯之間，看見產地的<span class="text-blue">晴朗</span>。</h2>
-          <p>我們相信，精品咖啡的美好不該被複雜掩蓋。以小批次烘焙留住豆子的個性，再用穩定、誠實的手沖，讓風土與時間在杯中變得清晰。</p>
-          <p>給懂得放慢腳步的人，也給每一個想重新認識咖啡的人。</p>
-          <a class="inline-link" href="#brew">看看我們如何沖煮 <span aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="coffee" id="coffee" aria-labelledby="coffeeTitle">
-      <div class="wrap">
-        <div class="section-heading reveal">
-          <div><p class="eyebrow">SEASONAL SELECTION</p><h2 class="section-title" id="coffeeTitle">今天，想喝哪一片<span class="text-blue">藍天</span>？</h2></div>
-          <p>三款當季單品，為不同的晨光、午後與靜夜而選。</p>
-        </div>
-        <div class="coffee-grid">
-          <article class="coffee-card reveal">
-            <div class="card-top">01 / BRIGHT</div><p class="origin">ETHIOPIA · YIRGACHEFFE</p><h3>衣索比亞・耶加雪菲</h3><p class="flavour">白花、佛手柑、蜂蜜</p>
-            <div class="card-footer"><span class="price">NT$ 520 / 200g</span><button class="save-coffee" type="button" data-coffee="衣索比亞・耶加雪菲">加入收藏 ＋</button></div>
-          </article>
-          <article class="coffee-card reveal">
-            <div class="card-top">02 / JUICY</div><p class="origin">KENYA · KIRINYAGA</p><h3>肯亞・祈安布</h3><p class="flavour">黑醋栗、洛神、葡萄柚</p>
-            <div class="card-footer"><span class="price">NT$ 580 / 200g</span><button class="save-coffee" type="button" data-coffee="肯亞・祈安布">加入收藏 ＋</button></div>
-          </article>
-          <article class="coffee-card reveal">
-            <div class="card-top">03 / ROUND</div><p class="origin">COLOMBIA · HUILA</p><h3>哥倫比亞・慧蘭</h3><p class="flavour">黃桃、焦糖、可可尾韻</p>
-            <div class="card-footer"><span class="price">NT$ 460 / 200g</span><button class="save-coffee" type="button" data-coffee="哥倫比亞・慧蘭">加入收藏 ＋</button></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="brew" id="brew" aria-labelledby="brewTitle">
-      <div class="wrap brew-grid">
-        <div class="brew-art reveal" aria-hidden="true"><div class="water-rings"></div><div class="dripper"></div><div class="carafe"></div><div class="brew-caption"><span>V60 / 15G : 240ML</span><strong>2'45''</strong></div></div>
-        <div class="brew-copy reveal">
-          <p class="eyebrow">A QUIET RITUAL</p>
-          <h2 class="section-title" id="brewTitle">把時間交給水，讓咖啡說<span class="text-blue">自己的話</span>。</h2>
-          <p>不需要繁複儀式，只要三個安靜的步驟。每一個參數，都是為了讓你更靠近豆子原本的樣子。</p>
-          <div class="brew-steps">
-            <div class="brew-step"><span class="step-number">01</span><div><h3>研磨，先聞見期待</h3><p>15g 中細研磨，讓香氣從指尖開始展開。</p></div></div>
-            <div class="brew-step"><span class="step-number">02</span><div><h3>悶蒸，等待第一個呼吸</h3><p>以 92°C 熱水浸潤 30 秒，喚醒甜感與層次。</p></div></div>
-            <div class="brew-step"><span class="step-number">03</span><div><h3>注水，保持自己的節奏</h3><p>穩定畫圈，讓 240ml 的清澈在 2 分 45 秒完成。</p></div></div>
+          <div class="hero-feature-item">
+            <span class="icon">🍚</span>
+            <span>日本越光米 × 熟成赤醋</span>
+          </div>
+          <div class="hero-feature-item">
+            <span class="icon">🥢</span>
+            <span>職人厚切刀工・鮮度保證</span>
           </div>
         </div>
       </div>
-    </section>
 
-    <section class="visit" id="visit" aria-labelledby="visitTitle">
-      <div class="wrap reveal">
-        <p class="eyebrow">THE BLUE SKY LETTER</p>
-        <h2 id="visitTitle">把下一杯好咖啡，寄到你的日常裡。</h2>
-        <p>每月一封風味通信，分享新豆、沖煮靈感與只給會員的小小驚喜。</p>
-        <form class="subscribe-form" id="subscribeForm">
-          <input type="email" aria-label="電子郵件地址" placeholder="your@email.com" required>
-          <button type="submit">訂閱風味通信</button>
-        </form>
+      <!-- 招牌海鮮丼精緻向量視覺卡片 -->
+      <div class="hero-visual-card">
+        <div class="floating-pill pill-top-left">
+          <span>🔥</span> 每日限量 30 份
+        </div>
+        <div class="floating-pill pill-bottom-right">
+          <span>⭐</span> 老饕推薦 99.8% 滿意
+        </div>
+
+        <!-- SVG 丼飯彩繪 -->
+        <div class="donburi-illustration">
+          <svg viewBox="0 0 200 200" width="100%" height="100%">
+            <!-- 丼飯大黑瓷碗底 -->
+            <ellipse cx="100" cy="148" rx="75" ry="18" fill="rgba(0,0,0,0.3)" />
+            <path d="M 30,95 Q 30,155 100,165 Q 170,155 170,95 Z" fill="#141E28" stroke="#D4AF37" stroke-width="2.5" />
+            <!-- 碗內白飯與赤醋飯底層 -->
+            <ellipse cx="100" cy="95" rx="68" ry="24" fill="#FCFBF7" stroke="#E9C46A" stroke-width="1.5" />
+            <!-- 紫蘇葉 (翠綠色) -->
+            <path d="M 52,82 C 40,65 70,55 75,75 Z" fill="#2A9D8F" />
+            <path d="M 125,75 C 130,55 160,65 148,82 Z" fill="#2A9D8F" />
+            <!-- 厚切鮭魚生魚片 (鮭魚橙) -->
+            <path d="M 55,90 C 70,70 100,75 95,95 C 90,105 60,105 55,90 Z" fill="#FF7A00" stroke="#FFF" stroke-width="1.2" />
+            <path d="M 62,88 Q 78,82 88,96" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" fill="none" />
+            <!-- 頂級黑鮪魚赤身 (鮮紅色) -->
+            <path d="M 90,82 C 115,62 145,72 135,95 C 125,108 95,100 90,82 Z" fill="#E63946" stroke="#FFF" stroke-width="1.2" />
+            <path d="M 98,82 Q 115,76 126,92" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" fill="none" />
+            <!-- 北海道黃金海膽 (金黃色) -->
+            <ellipse cx="100" cy="80" rx="16" ry="10" fill="#F4A261" stroke="#E76F51" stroke-width="1" />
+            <!-- 爆漿三島鮭魚卵珠寶 (晶亮橘紅圓珠) -->
+            <circle cx="75" cy="102" r="4.5" fill="#FF4D6D" stroke="#FFF" stroke-width="0.8" />
+            <circle cx="84" cy="106" r="4.2" fill="#FF7A00" stroke="#FFF" stroke-width="0.8" />
+            <circle cx="94" cy="104" r="4.8" fill="#FF4D6D" stroke="#FFF" stroke-width="0.8" />
+            <circle cx="105" cy="107" r="4.3" fill="#FF7A00" stroke="#FFF" stroke-width="0.8" />
+            <circle cx="116" cy="102" r="4.5" fill="#FF4D6D" stroke="#FFF" stroke-width="0.8" />
+            <circle cx="80" cy="95" r="4" fill="#FF7A00" stroke="#FFF" stroke-width="0.8" />
+            <circle cx="120" cy="94" r="4.2" fill="#FF7A00" stroke="#FFF" stroke-width="0.8" />
+            <!-- 生食級牡丹甜蝦 (粉嫩紅帶尾) -->
+            <path d="M 115,68 Q 150,50 162,70 Q 148,82 125,78 Z" fill="#FF8FA3" stroke="#FFF" stroke-width="1" />
+            <!-- 日式玉子燒 (鮮黃色) -->
+            <rect x="42" y="94" width="22" height="14" rx="2" fill="#FFD166" transform="rotate(-15 42 94)" />
+            <!-- 翠綠山葵泥與日式金箔 -->
+            <ellipse cx="102" cy="70" rx="5" ry="4" fill="#52B788" />
+            <circle cx="100" cy="77" r="1.5" fill="#FFE169" />
+          </svg>
+        </div>
+
+        <div class="visual-dish-name">極上・腦丼大開盛合</div>
+        <div class="visual-dish-sub">北海道海膽 / 藍鰭鮪魚大腹 / 爆量鮭魚卵 / 牡丹蝦</div>
+        <div class="visual-price-tag">NT$ 580</div>
       </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div class="footer-brand"><a class="brand" href="#top" aria-label="回到藍天咖啡首頁"><span class="brand-mark" aria-hidden="true">B</span><span class="brand-copy"><strong>藍天咖啡</strong><small>BLUE SKY COFFEE</small></span></a><p>為喜愛手沖咖啡的你，留下 一段慢慢品味、微微放晴的時間。</p></div>
-      <div><p class="footer-title">網站主題</p><div class="footer-links"><a href="#story">我們的故事</a><a href="#coffee">本季選豆</a><a href="#brew">沖煮日常</a></div></div>
-      <div><p class="footer-title">聯絡我們</p><div class="footer-links"><a href="mailto:hello@bluesky.coffee">hello@bluesky.coffee</a><address>台中市西屯區僑光路 100 號</address><span>每日 10:00 — 19:00</span></div></div>
     </div>
-    <div class="wrap footer-bottom"><span>© 2025 BLUE SKY COFFEE. ALL RIGHTS RESERVED.</span><span>BREW SLOW · LIVE BRIGHT</span></div>
+  </section>
+
+  <!-- 今日現撈漁獲即時看板 -->
+  <section class="fresh-board-section" id="fresh">
+    <div class="container">
+      <div class="fresh-board">
+        <div class="fresh-board-label">
+          <div class="fresh-pulse"></div>
+          <div>
+            <h3>今日漁港直送看板</h3>
+            <span id="currentDateStr">2026.10.01 晨撈登記入庫</span>
+          </div>
+        </div>
+
+        <div class="fresh-items-marquee">
+          <div class="fresh-item-tag">
+            <span class="badge-dot"></span>
+            <strong>北海道・根室：</strong> 馬糞海膽 (生食級)
+          </div>
+          <div class="fresh-item-tag">
+            <span class="badge-dot"></span>
+            <strong>東港・現捕：</strong> 藍鰭鮪魚赤身與中腹
+          </div>
+          <div class="fresh-item-tag">
+            <span class="badge-dot"></span>
+            <strong>青森・八戶：</strong> 活締真鯛・極鮮帆立貝
+          </div>
+          <div class="fresh-item-tag">
+            <span class="badge-dot"></span>
+            <strong>宜蘭・大溪：</strong> 現流野生牡丹甜蝦
+          </div>
+        </div>
+
+        <div class="fresh-board-action">
+          <a href="#menu" class="btn btn-red">查看供應丼飯</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌精神與四大堅持 -->
+  <section class="brand-values" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-title">Our Philosophy</span>
+        <h2>為什麼大家一吃就「腦丼大開」？</h2>
+        <p>不只是飽足，我們要把日本築地漁市場最鮮甜純粹的感動，完整搬到你的餐桌前。</p>
+      </div>
+
+      <div class="value-cards-grid">
+        <div class="value-card">
+          <div class="value-icon">🚢</div>
+          <h3>每日 04:00 現撈採購</h3>
+          <p>每日清晨親赴海港驗貨，搭配日本每週空運進口，確保生魚片呈現水晶般的鮮亮透光與絕佳彈性。</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🔪</div>
+          <h3>匠人黃金厚切技法</h3>
+          <p>堅持每片生魚片黃金厚度 1.2 公分，油脂與咀嚼咬感達到完美和諧，給您每一口最澎湃的飽滿感受。</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🌾</div>
+          <h3>日本越光米 × 熟成赤醋</h3>
+          <p>選用新潟越光米搭配古法三年熟成酒粕赤醋，米粒圓潤彈牙，天然溫潤微酸，完美襯托海鮮極致鮮甜。</p>
+        </div>
+
+        <div class="value-card">
+          <div class="value-icon">🤝</div>
+          <h3>留學生的思鄉避風港</h3>
+          <p>主廚曾於東京修業五年，深知在外遊子想念家鄉的心。日語接待、道地口味，暖心守護每一位在台留學生。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 極鮮人氣海鮮丼飯菜單 -->
+  <section class="menu-section" id="menu">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-title">Signature Donburi</span>
+        <h2>極鮮人氣海鮮丼盛宴</h2>
+        <p>每一碗丼飯皆附「日式手作茶碗蒸」與「甘甜鮭魚味噌湯（可免費無限續）」</p>
+      </div>
+
+      <!-- 分類切換按鈕 -->
+      <div class="menu-filter-bar">
+        <button class="filter-btn active" data-filter="all">全部海味丼飯</button>
+        <button class="filter-btn" data-filter="raw">極品生食盛合</button>
+        <button class="filter-btn" data-filter="aburi">炙燒溫熱熟丼</button>
+        <button class="filter-btn" data-filter="student">留學生人氣推薦</button>
+      </div>
+
+      <!-- 丼飯卡片網格 -->
+      <div class="menu-grid" id="menuGrid">
+
+        <!-- 菜色 1 -->
+        <div class="menu-card" data-category="raw student">
+          <div class="dish-img-wrap">
+            <span class="dish-tag-badge">人氣第 1 名</span>
+            <span class="dish-discount-badge">極品盛宴</span>
+            <svg class="dish-svg-art" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" fill="#10253B"/>
+              <circle cx="80" cy="80" r="62" fill="#FCFBF7" stroke="#E9C46A" stroke-width="2"/>
+              <path d="M 40,65 Q 80,45 120,65 Q 110,110 50,110 Z" fill="#E63946"/>
+              <circle cx="65" cy="85" r="16" fill="#FF7A00"/>
+              <circle cx="95" cy="80" r="14" fill="#F4A261"/>
+              <circle cx="78" cy="98" r="4" fill="#FF3366"/>
+              <circle cx="88" cy="100" r="4" fill="#FF3366"/>
+              <circle cx="82" cy="108" r="4" fill="#FF3366"/>
+              <path d="M 100,55 L 125,75" stroke="#2A9D8F" stroke-width="6" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-name">極上・腦丼大開盛合</h3>
+            </div>
+            <span class="dish-jp-name">極上プレミアム海鮮丼</span>
+            <p class="dish-desc">店內招牌之王！集結北海道生馬糞海膽、頂級黑鮪魚大腹、爆汁三島鮭魚卵、牡丹甜蝦與特級干貝，豪邁滿足所有欲望！</p>
+            <div class="dish-ingredients">
+              <span class="ingredient-pill">馬糞海膽</span>
+              <span class="ingredient-pill">黑鮪魚大腹</span>
+              <span class="ingredient-pill">大干貝</span>
+              <span class="ingredient-pill">鮭魚卵</span>
+              <span class="ingredient-pill">牡丹蝦</span>
+            </div>
+            <div class="dish-footer">
+              <div class="dish-price-box">
+                <span class="currency">NT$</span>
+                <span class="price">580</span>
+                <span class="original-price">NT$ 650</span>
+              </div>
+              <button class="add-to-cart-btn" onclick="addToCart('極上・腦丼大開盛合', 580)" title="加入點餐清單">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 菜色 2 -->
+        <div class="menu-card" data-category="raw student">
+          <div class="dish-img-wrap">
+            <span class="dish-tag-badge">油脂豐厚</span>
+            <svg class="dish-svg-art" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" fill="#10253B"/>
+              <circle cx="80" cy="80" r="62" fill="#FCFBF7" stroke="#FF7A00" stroke-width="2"/>
+              <path d="M 45,70 Q 80,50 115,70 Q 115,105 45,105 Z" fill="#FF7A00"/>
+              <path d="M 55,75 Q 80,60 105,75" stroke="#FFF" stroke-width="2" fill="none"/>
+              <path d="M 50,90 Q 80,75 110,90" stroke="#FFF" stroke-width="2" fill="none"/>
+              <circle cx="70" cy="85" r="5" fill="#FF3366"/>
+              <circle cx="82" cy="88" r="5" fill="#FF3366"/>
+              <circle cx="94" cy="85" r="5" fill="#FF3366"/>
+            </svg>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-name">滿溢鮭魚卵瀑布丼</h3>
+            </div>
+            <span class="dish-jp-name">サーモン＆いくら溢れ丼</span>
+            <p class="dish-desc">厚切挪威極鮮鮭魚，鋪上由師傅手工特製醬油浸漬的三島鮭魚卵，咬下在齒間爆開濃郁鹹甜海味！</p>
+            <div class="dish-ingredients">
+              <span class="ingredient-pill">特切鮭魚</span>
+              <span class="ingredient-pill">雙倍鮭魚卵</span>
+              <span class="ingredient-pill">日式玉子</span>
+              <span class="ingredient-pill">紫蘇葉</span>
+            </div>
+            <div class="dish-footer">
+              <div class="dish-price-box">
+                <span class="currency">NT$</span>
+                <span class="price">380</span>
+                <span class="original-price">NT$ 420</span>
+              </div>
+              <button class="add-to-cart-btn" onclick="addToCart('滿溢鮭魚卵瀑布丼', 380)" title="加入點餐清單">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 菜色 3 -->
+        <div class="menu-card" data-category="raw">
+          <div class="dish-img-wrap">
+            <span class="dish-tag-badge">奢華金賞</span>
+            <svg class="dish-svg-art" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" fill="#10253B"/>
+              <circle cx="80" cy="80" r="62" fill="#FCFBF7" stroke="#E9C46A" stroke-width="2"/>
+              <ellipse cx="80" cy="75" rx="30" ry="18" fill="#F4A261"/>
+              <path d="M 45,95 Q 80,75 115,95 Q 95,120 65,120 Z" fill="#E63946"/>
+              <circle cx="80" cy="73" r="3" fill="#FFE169"/>
+            </svg>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-name">築地海膽鮪魚赤身丼</h3>
+            </div>
+            <span class="dish-jp-name">特上ウニと本マグロ丼</span>
+            <p class="dish-desc">北海道產空運生海膽搭配熟成藍鰭鮪魚赤身，濃郁如奶油般的甜潤與鐵質清香互相交融，極致典雅。</p>
+            <div class="dish-ingredients">
+              <span class="ingredient-pill">北海道海膽</span>
+              <span class="ingredient-pill">藍鰭鮪魚赤身</span>
+              <span class="ingredient-pill">現磨山葵</span>
+              <span class="ingredient-pill">金箔碎</span>
+            </div>
+            <div class="dish-footer">
+              <div class="dish-price-box">
+                <span class="currency">NT$</span>
+                <span class="price">620</span>
+              </div>
+              <button class="add-to-cart-btn" onclick="addToCart('築地海膽鮪魚赤身丼', 620)" title="加入點餐清單">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 菜色 4 -->
+        <div class="menu-card" data-category="aburi student">
+          <div class="dish-img-wrap">
+            <span class="dish-tag-badge">炙燒熟香</span>
+            <span class="dish-discount-badge">不敢生食首選</span>
+            <svg class="dish-svg-art" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" fill="#10253B"/>
+              <circle cx="80" cy="80" r="62" fill="#FCFBF7" stroke="#FF7A00" stroke-width="2"/>
+              <path d="M 40,75 C 60,60 100,60 120,75 L 110,105 L 50,105 Z" fill="#E7C28F"/>
+              <line x1="50" y1="75" x2="110" y2="75" stroke="#7A3912" stroke-width="3"/>
+              <line x1="55" y1="85" x2="105" y2="85" stroke="#7A3912" stroke-width="3"/>
+              <line x1="60" y1="95" x2="100" y2="95" stroke="#7A3912" stroke-width="3"/>
+            </svg>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-name">極香炙燒比目魚星鰻丼</h3>
+            </div>
+            <span class="dish-jp-name">炙りえんがわ＆穴子丼</span>
+            <p class="dish-desc">高溫噴槍瞬間逼出比目魚鰭邊肉極致油脂香氣，入口即化；搭配甘甜東京醬汁炙烤星鰻，溫熱下飯絕品！</p>
+            <div class="dish-ingredients">
+              <span class="ingredient-pill">炙燒比目魚鰭邊</span>
+              <span class="ingredient-pill">醬烤星鰻</span>
+              <span class="ingredient-pill">炙干貝</span>
+              <span class="ingredient-pill">焦香七味</span>
+            </div>
+            <div class="dish-footer">
+              <div class="dish-price-box">
+                <span class="currency">NT$</span>
+                <span class="price">420</span>
+                <span class="original-price">NT$ 460</span>
+              </div>
+              <button class="add-to-cart-btn" onclick="addToCart('極香炙燒比目魚星鰻丼', 420)" title="加入點餐清單">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 菜色 5 -->
+        <div class="menu-card" data-category="student">
+          <div class="dish-img-wrap">
+            <span class="dish-tag-badge">留學生人氣 CP 王</span>
+            <span class="dish-discount-badge">出示學生證折 NT$70</span>
+            <svg class="dish-svg-art" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" fill="#10253B"/>
+              <circle cx="80" cy="80" r="62" fill="#FCFBF7" stroke="#2A9D8F" stroke-width="2"/>
+              <path d="M 40,80 L 70,55 L 90,85 Z" fill="#FF7A00"/>
+              <path d="M 70,55 L 110,65 L 95,95 Z" fill="#E63946"/>
+              <rect x="75" y="85" width="24" height="24" fill="#FFD166"/>
+              <circle cx="65" cy="100" r="8" fill="#F4A261"/>
+            </svg>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-name">留學生元氣盛丼套餐</h3>
+            </div>
+            <span class="dish-jp-name">留学生応援！満腹丼</span>
+            <p class="dish-desc">專為在台灣奮鬥的學生量身訂做！嚴選厚切挪威鮭魚、新鮮旗魚、真鯛與雙份玉子燒，份量十足，溫暖家鄉胃！</p>
+            <div class="dish-ingredients">
+              <span class="ingredient-pill">生厚鮭魚</span>
+              <span class="ingredient-pill">旬真鯛</span>
+              <span class="ingredient-pill">厚煎玉子</span>
+              <span class="ingredient-pill">雙倍白飯可續</span>
+            </div>
+            <div class="dish-footer">
+              <div class="dish-price-box">
+                <span class="currency">NT$</span>
+                <span class="price">280</span>
+                <span class="original-price">NT$ 350</span>
+              </div>
+              <button class="add-to-cart-btn" onclick="addToCart('留學生元氣盛丼套餐', 280)" title="加入點餐清單">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 菜色 6 -->
+        <div class="menu-card" data-category="raw">
+          <div class="dish-img-wrap">
+            <span class="dish-tag-badge">繽紛清爽</span>
+            <svg class="dish-svg-art" viewBox="0 0 160 160">
+              <circle cx="80" cy="80" r="70" fill="#10253B"/>
+              <circle cx="80" cy="80" r="62" fill="#FCFBF7" stroke="#E76F51" stroke-width="2"/>
+              <rect x="50" y="60" width="12" height="12" fill="#FF7A00"/>
+              <rect x="68" y="62" width="12" height="12" fill="#E63946"/>
+              <rect x="86" y="58" width="12" height="12" fill="#2A9D8F"/>
+              <rect x="102" y="65" width="12" height="12" fill="#FFD166"/>
+              <rect x="55" y="80" width="12" height="12" fill="#F4A261"/>
+              <rect x="75" y="82" width="12" height="12" fill="#457B9D"/>
+              <rect x="95" y="84" width="12" height="12" fill="#FF7A00"/>
+            </svg>
+          </div>
+          <div class="dish-body">
+            <div class="dish-header">
+              <h3 class="dish-name">彩虹寶石海之幸散壽司</h3>
+            </div>
+            <span class="dish-jp-name">七色バラちらし丼</span>
+            <p class="dish-desc">七彩繽紛的手工丁切生魚片（鮭魚、鮪魚、旗魚、章魚、小黃瓜丁、玉子燒與甜蝦），口感層次豐富爽脆，拍照打卡超吸睛！</p>
+            <div class="dish-ingredients">
+              <span class="ingredient-pill">綜合生魚丁</span>
+              <span class="ingredient-pill">北海道干貝</span>
+              <span class="ingredient-pill">酪梨</span>
+              <span class="ingredient-pill">飛魚卵</span>
+            </div>
+            <div class="dish-footer">
+              <div class="dish-price-box">
+                <span class="currency">NT$</span>
+                <span class="price">330</span>
+              </div>
+              <button class="add-to-cart-btn" onclick="addToCart('彩虹寶石海之幸散壽司', 330)" title="加入點餐清單">+</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 日本留學生應援專區 -->
+  <section class="student-special-section" id="student">
+    <div class="container">
+      <div class="student-box">
+        <div class="student-content">
+          <div class="student-badge-wrap">
+            <span>🇯🇵 留学生全力応援中！</span>
+          </div>
+          <h2>在外求學，<br>最想念的那一碗本格家鄉味</h2>
+          <p>
+            我們知道在異鄉打拼不容易，偶爾就想吃一碗熟悉的築地海鮮丼。只要在結帳或訂位時出示日本在台留學生證（或台灣在學學生證），即可終身享有暖心應援回饋！
+          </p>
+
+          <div class="student-perks">
+            <div class="perk-item">
+              <span class="perk-icon">🍚</span>
+              <div class="perk-text">
+                <h4>越光米赤醋飯無限續</h4>
+                <span>大胃王吃得飽，求學元氣滿滿</span>
+              </div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🥣</span>
+              <div class="perk-text">
+                <h4>鮭魚赤味噌湯免費喝</h4>
+                <span>每日現熬新鮮魚骨，暖心暖胃</span>
+              </div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🏷️</span>
+              <div class="perk-text">
+                <h4>全單享 88 折優惠</h4>
+                <span>點選任何海鮮丼皆享暖心折扣</span>
+              </div>
+            </div>
+            <div class="perk-item">
+              <span class="perk-icon">🥚</span>
+              <div class="perk-text">
+                <h4>升級極品松露茶碗蒸</h4>
+                <span>出示證件即免費由原味升級</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="#booking" class="btn btn-red">填寫留學生優先預約</a>
+        </div>
+
+        <div class="student-visual-card">
+          <div class="student-card-title">留学生の声 (留學生心聲)</div>
+          <div class="student-card-sub">台湾で出会った、一番美味しい日本の味</div>
+
+          <div class="student-quote">
+            「台湾に来て半年、日本の本物の海鮮丼がずっと恋しかった。脳丼大開の酢飯とマグロを食べた瞬間、東京の築地を思い出して涙が出そうになりました！ご飯おかわり自由も最高です。」
+          </div>
+          <div class="student-signature">—— 早稲田大学 交換留学生 田中 健太</div>
+
+          <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-around;">
+            <div>
+              <strong style="color: #FF7A00; font-size: 20px;">1,200+</strong>
+              <div style="font-size: 11px; color: rgba(255,255,255,0.7);">在台留學生到訪</div>
+            </div>
+            <div>
+              <strong style="color: #FF7A00; font-size: 20px;">4.9 ★</strong>
+              <div style="font-size: 11px; color: rgba(255,255,255,0.7);">Google 美味好評</div>
+            </div>
+            <div>
+              <strong style="color: #FF7A00; font-size: 20px;">100%</strong>
+              <div style="font-size: 11px; color: rgba(255,255,255,0.7);">日本本格還原度</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 顧客真實好評 -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="sub-title">Testimonials</span>
+        <h2>老饕與留學生的真實心聲</h2>
+        <p>每一碗丼飯，都是一場與大海最熱烈的對話</p>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">
+              「身為在台工作五年的日本人，這是我在台北吃過最驚豔的海鮮丼！赤醋飯調味非常道地，生魚片厚度十足，海膽完全沒有明礬苦味，甜度破表！」
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">佐藤</div>
+            <div class="author-info">
+              <h4>佐藤 翼 (日商台北代表)</h4>
+              <span>常客・每週五必訪</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">
+              「我是師大華語中心的留學生，朋友推薦我來。出示學生證真的白飯味噌湯一直續，鮭魚卵爆漿的口感太銷魂了！服務員還會跟我用日語聊天，非常溫暖。」
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">Yuki</div>
+            <div class="author-info">
+              <h4>鈴木 優紀 (師大日籍留學生)</h4>
+              <span>留學生特選套餐愛好者</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div>
+            <div class="review-stars">★★★★★</div>
+            <p class="review-content">
+              「點了『極上腦丼大開盛合』，一端上來視覺效果太震撼了！干貝超大顆又鮮甜，比目魚鰭邊炙燒得恰到好處，帶家人來吃大家讚不絕口！」
+            </p>
+          </div>
+          <div class="review-author">
+            <div class="author-avatar">林</div>
+            <div class="author-info">
+              <h4>林先生 (美食部落客)</h4>
+              <span>美食探店五星推薦</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 線上預約訂位與外帶點餐表單 -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-box">
+        <div class="booking-info">
+          <span class="badge badge-gold" style="margin-bottom: 14px;">Instant Booking</span>
+          <h2>預約您的<br>極鮮海味饗宴</h2>
+          <p>
+            店內席位有限，為確保每條魚獲維持最嚴苛的低溫熟成品質，建議提前預約訂位或線上預訂外帶自取。
+          </p>
+
+          <ul class="info-list">
+            <li>
+              <span class="icon">📍</span>
+              <div>
+                <strong>門市地址：</strong>台北市大安區新生南路三段 88 號（近捷運公館站 3 號出口步行 3 分鐘）
+              </div>
+            </li>
+            <li>
+              <span class="icon">⏰</span>
+              <div>
+                <strong>營業時間：</strong>午餐 11:30 - 14:30 ｜ 晚餐 17:30 - 21:30（週一公休）
+              </div>
+            </li>
+            <li>
+              <span class="icon">📞</span>
+              <div>
+                <strong>訂位專線：</strong>(02) 2368-8888（每日 10:00 起接受電話預約）
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- 訂位與外帶表單 -->
+        <div class="booking-form">
+          <h3>立即預訂席位 / 外帶自取</h3>
+          <form id="reservationForm" onsubmit="handleReservation(event)">
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="userName">姓名 / お名前 *</label>
+                <input type="text" id="userName" class="form-control" placeholder="例：高同學 / 田中樣" required>
+              </div>
+              <div class="form-group">
+                <label for="userPhone">聯絡電話 / 電話番号 *</label>
+                <input type="tel" id="userPhone" class="form-control" placeholder="例：0912-345-678" required>
+              </div>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="bookType">用餐方式 *</label>
+                <select id="bookType" class="form-control">
+                  <option value="dinein">內用訂位 (Dine-in)</option>
+                  <option value="takeout">外帶自取 (Take-out)</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="guestCount">用餐人數 / 人数 *</label>
+                <select id="guestCount" class="form-control">
+                  <option value="1">1 位 (吧檯享受極鮮)</option>
+                  <option value="2" selected>2 位 (雙人套餐特享)</option>
+                  <option value="3">3 - 4 位 (好友聚餐)</option>
+                  <option value="5">5 位以上 (包廂預約)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="bookDate">預約日期 *</label>
+                <input type="date" id="bookDate" class="form-control" required>
+              </div>
+              <div class="form-group">
+                <label for="bookTime">預約時段 *</label>
+                <select id="bookTime" class="form-control">
+                  <option value="11:30">11:30</option>
+                  <option value="12:30">12:30</option>
+                  <option value="13:30">13:30</option>
+                  <option value="17:30">17:30</option>
+                  <option value="18:30" selected>18:30</option>
+                  <option value="19:30">19:30</option>
+                  <option value="20:30">20:30</option>
+                </select>
+              </div>
+            </div>
+
+            <label class="checkbox-label">
+              <input type="checkbox" id="isStudentCheckbox">
+              <span>我是日本留學生或在學學生（出示證件享 88 折與白飯免費續）</span>
+            </label>
+
+            <button type="submit" class="btn btn-red btn-submit">送出預約並鎖定鮮度</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="brand-icon">🍣</div>
+            <div class="brand-text">
+              <h1 style="color: #FFF; font-size: 20px;">腦丼大開</h1>
+              <span style="color: var(--gold-accent);">本格日式海鮮丼専門店</span>
+            </div>
+          </div>
+          <p>
+            以對海鮮的純粹熱愛為名，嚴選現撈漁獲，還原日本正統醋飯口感，為每位愛吃海鮮的朋友開啟極致味蕾饗宴。
+          </p>
+          <div class="social-links">
+            <a href="#hero" class="social-icon" title="Instagram">📷</a>
+            <a href="#hero" class="social-icon" title="Facebook">📘</a>
+            <a href="#hero" class="social-icon" title="LINE官方帳號">💬</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>快速導覽</h4>
+          <ul class="footer-links">
+            <li><a href="#about">品牌起源與四大堅持</a></li>
+            <li><a href="#menu">極鮮人氣海鮮丼菜單</a></li>
+            <li><a href="#fresh">每日漁港現撈直送看板</a></li>
+            <li><a href="#student">留學生專屬暖心優惠</a></li>
+            <li><a href="#reviews">顧客老饕五星真實評價</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>熱門招牌丼飯</h4>
+          <ul class="footer-links">
+            <li><a href="#menu">極上・腦丼大開盛合 (NT$ 580)</a></li>
+            <li><a href="#menu">滿溢鮭魚卵瀑布丼 (NT$ 380)</a></li>
+            <li><a href="#menu">築地海膽鮪魚赤身丼 (NT$ 620)</a></li>
+            <li><a href="#menu">炙燒比目魚星鰻丼 (NT$ 420)</a></li>
+            <li><a href="#menu">留學生元氣盛丼 (NT$ 280)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>門市資訊</h4>
+          <div class="footer-contact-item">
+            <span class="icon">📍</span>
+            <span>台北市大安區新生南路三段 88 號</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">🚇</span>
+            <span>捷運公館站 3 號出口步行 3 分鐘</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">📞</span>
+            <span>(02) 2368-8888</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="icon">⏰</span>
+            <span>11:30 - 14:30 / 17:30 - 21:30 (週一公休)</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 腦丼大開 NAO DON JAPANESE SEAFOOD BOWL. All Rights Reserved.
+        </div>
+        <div>
+          網頁製作依據規格：WebSpec_11515121/specs/outline.md
+        </div>
+      </div>
+    </div>
   </footer>
-  <div class="toast" role="status" aria-live="polite"></div>
 
+  <!-- 簡易購物車抽屜 (Cart Drawer) -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCart()"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="drawer-header">
+      <h3>我的極鮮點餐清單 🍣</h3>
+      <button class="close-drawer-btn" onclick="closeCart()">✕</button>
+    </div>
+    <div class="drawer-body" id="cartList">
+      <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">
+        目前尚未選購任何丼飯。<br>快去挑選您最想吃的大海美味吧！
+      </p>
+    </div>
+    <div class="drawer-footer">
+      <div class="cart-total-row">
+        <span>小計金額：</span>
+        <span class="total-amount" id="cartTotal">NT$ 0</span>
+      </div>
+      <button class="btn btn-red" style="width: 100%;" onclick="checkoutCart()">確認點餐並送出預約</button>
+    </div>
+  </aside>
+
+  <!-- 提示訊息容器 (Toast) -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- JavaScript 互動功能 -->
   <script>
-    (() => {
-      const menuButton = document.querySelector('.menu-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      const toast = document.querySelector('.toast');
-      let toastTimer;
-
-      const closeMenu = () => {
-        navLinks.classList.remove('open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.setAttribute('aria-label', '開啟導覽選單');
-        menuButton.textContent = '☰';
-      };
-      menuButton.addEventListener('click', () => {
-        const opening = !navLinks.classList.contains('open');
-        navLinks.classList.toggle('open', opening);
-        menuButton.setAttribute('aria-expanded', String(opening));
-        menuButton.setAttribute('aria-label', opening ? '關閉導覽選單' : '開啟導覽選單');
-        menuButton.textContent = opening ? '×' : '☰';
-      });
-      navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-
-      const showToast = message => {
-        clearTimeout(toastTimer);
-        toast.textContent = message;
-        toast.classList.add('show');
-        toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
-      };
-      document.querySelectorAll('[data-coffee]').forEach(button => {
-        button.addEventListener('click', () => showToast(`已將「${button.dataset.coffee}」加入你的收藏。`));
-      });
-      document.querySelector('#subscribeForm').addEventListener('submit', event => {
-        event.preventDefault();
-        event.currentTarget.reset();
-        showToast('謝謝訂閱，下一封晴朗的風味通信即將寄出。');
-      });
-
-      const revealItems = document.querySelectorAll('.reveal');
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (!('IntersectionObserver' in window) || reducedMotion) {
-        revealItems.forEach(item => item.classList.add('visible'));
-      } else {
-        const observer = new IntersectionObserver(entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: .12 });
-        revealItems.forEach(item => observer.observe(item));
+    // 預設日期設定為今天
+    document.addEventListener('DOMContentLoaded', () => {
+      const today = new Date();
+      const yyyy = today.getFullYear();
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const dd = String(today.getDate()).padStart(2, '0');
+      const dateInput = document.getElementById('bookDate');
+      if (dateInput) {
+        dateInput.value = `${yyyy}-${mm}-${dd}`;
+        dateInput.min = `${yyyy}-${mm}-${dd}`;
       }
-    })();
+      const dateStr = document.getElementById('currentDateStr');
+      if (dateStr) {
+        dateStr.textContent = `${yyyy}.${mm}.${dd} 晨撈登記入庫・鮮度 100%`;
+      }
+    });
+
+    // 手機版選單切換
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+    });
+
+    // 點擊導覽連結自動收合手機選單
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+      });
+    });
+
+    // 菜單類別篩選器 (Filter)
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const menuCards = document.querySelectorAll('.menu-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+        menuCards.forEach(card => {
+          if (filter === 'all') {
+            card.style.display = 'flex';
+          } else {
+            const categories = card.getAttribute('data-category') || '';
+            if (categories.includes(filter)) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+
+    // 簡易購物車狀態管理
+    const cart = [];
+
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.innerHTML = `<span>🍣</span> <span>${message}</span>`;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(20px)';
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    function addToCart(dishName, price) {
+      const existing = cart.find(item => item.name === dishName);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ name: dishName, price: price, qty: 1 });
+      }
+      updateCartUI();
+      showToast(`已將【${dishName}】加入點餐清單！`);
+    }
+
+    function updateCartUI() {
+      const countBadge = document.getElementById('cartCount');
+      const cartList = document.getElementById('cartList');
+      const cartTotal = document.getElementById('cartTotal');
+
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      countBadge.textContent = totalCount;
+      cartTotal.textContent = `NT$ ${totalAmount.toLocaleString()}`;
+
+      if (cart.length === 0) {
+        cartList.innerHTML = `
+          <p style="color: var(--text-muted); text-align: center; margin-top: 40px;">
+            目前尚未選購任何丼飯。<br>快去挑選您最想吃的大海美味吧！
+          </p>
+        `;
+      } else {
+        cartList.innerHTML = cart.map((item, idx) => `
+          <div class="cart-item">
+            <div>
+              <div class="cart-item-title">${item.name}</div>
+              <div class="cart-item-price">NT$ ${item.price} × ${item.qty}</div>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <button onclick="changeQty(${idx}, -1)" style="padding: 2px 8px; background: #eee; border-radius: 4px;">-</button>
+              <span>${item.qty}</span>
+              <button onclick="changeQty(${idx}, 1)" style="padding: 2px 8px; background: #eee; border-radius: 4px;">+</button>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function changeQty(index, delta) {
+      cart[index].qty += delta;
+      if (cart[index].qty <= 0) {
+        cart.splice(index, 1);
+      }
+      updateCartUI();
+    }
+
+    function openCart() {
+      document.getElementById('cartDrawer').classList.add('active');
+      document.getElementById('cartOverlay').classList.add('active');
+    }
+
+    function closeCart() {
+      document.getElementById('cartDrawer').classList.remove('active');
+      document.getElementById('cartOverlay').classList.remove('active');
+    }
+
+    document.getElementById('openCartBtn').addEventListener('click', openCart);
+
+    function checkoutCart() {
+      if (cart.length === 0) {
+        alert('您的購物清單是空的，請先挑選喜歡的海鮮丼！');
+        return;
+      }
+      closeCart();
+      showToast('已確認您的點餐項目！請在下方填寫訂位或外帶資訊以完成預約。');
+      window.location.hash = '#booking';
+    }
+
+    // 訂位表單處理
+    function handleReservation(e) {
+      e.preventDefault();
+      const name = document.getElementById('userName').value;
+      const phone = document.getElementById('userPhone').value;
+      const type = document.getElementById('bookType').value === 'dinein' ? '內用訂位' : '外帶自取';
+      const guests = document.getElementById('guestCount').value;
+      const date = document.getElementById('bookDate').value;
+      const time = document.getElementById('bookTime').value;
+      const isStudent = document.getElementById('isStudentCheckbox').checked;
+
+      const studentMsg = isStudent ? '（已標註享有留學生 88 折與白飯無限續）' : '';
+
+      alert(`🎉 預約成功！\n\n感謝 ${name} 貴賓！\n預約類型：${type}\n用餐日期：${date} ${time}\n人數：${guests} 位\n聯絡電話：${phone}\n${studentMsg}\n\n期待為您獻上一碗入魂的極鮮海味！`);
+      
+      e.target.reset();
+      showToast('預約資訊已成功送出！我們將為您保留極鮮席位。');
+    }
   </script>
 </body>
 </html>
+
