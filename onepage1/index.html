@@ -447,90 +447,27 @@
       color: var(--salmon-orange);
     }
 
-    /* 海鮮丼視覺卡片 */
-    .hero-visual-card {
+    /* 右欄圖片規格（依據 onepage1.md 規格：不使用 CSS 插畫，使用既有圖片） */
+    .hero-image-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(16px);
-      border-radius: var(--radius-lg);
-      padding: 36px 30px;
-      box-shadow: var(--shadow-lg);
-      text-align: center;
-      animation: floatSlow 6s ease-in-out infinite;
-    }
-
-        .hero-visual-card {
-      padding: 0;
-      width: 400px;
-      height: 300px;
-      overflow: hidden;
     }
 
     .hero-photo {
-      display: block;
       width: 400px;
       height: 300px;
+      max-width: 100%;
       object-fit: cover;
-      border-radius: inherit;
-    }
-@keyframes floatSlow {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg), 0 0 0 1px rgba(255, 255, 255, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .donburi-illustration {
-      width: 280px;
-      height: 280px;
-      margin: 0 auto 20px;
-      position: relative;
-      filter: drop-shadow(0 18px 25px rgba(0, 0, 0, 0.45));
-    }
-
-    .floating-pill {
-      position: absolute;
-      background: #FFF;
-      color: var(--deep-ocean);
-      padding: 8px 16px;
-      border-radius: var(--radius-full);
-      font-size: 12px;
-      font-weight: 800;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      z-index: 10;
-    }
-
-    .pill-top-left {
-      top: 10px;
-      left: -15px;
-      border-left: 4px solid var(--primary-red);
-    }
-
-    .pill-bottom-right {
-      bottom: 20px;
-      right: -15px;
-      border-left: 4px solid var(--gold-accent);
-    }
-
-    .visual-dish-name {
-      font-size: 22px;
-      font-weight: 800;
-      color: #FFF;
-      margin-bottom: 6px;
-    }
-
-    .visual-dish-sub {
-      font-size: 13px;
-      color: var(--gold-accent);
-      margin-bottom: 12px;
-    }
-
-    .visual-price-tag {
-      font-size: 26px;
-      font-weight: 900;
-      color: #FF7A00;
+    .hero-photo:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow: 0 24px 56px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.25);
     }
 
     /* Live Fresh Board */
@@ -1557,7 +1494,7 @@
         <li><a href="#about" class="nav-link">品牌精神</a></li>
         <li><a href="#menu" class="nav-link">極鮮菜單</a></li>
         <li><a href="#fresh" class="nav-link">產地直送</a></li>
-        <li><a href="#student" class="nav-link">留學生專區</a></li>
+        <li><a href="#student" class="nav-link">留學生的專區</a></li>
         <li><a href="#reviews" class="nav-link">老饕好評</a></li>
         <li><a href="#booking" class="nav-link">門市訂位</a></li>
       </ul>
@@ -1582,7 +1519,7 @@
           <span>✨ 日本直輸・築地職人技術監製</span>
         </div>
         <h2 class="hero-title">
-          一碗入魂，<br>
+          一碗直接入魂，<br>
           <span class="highlight-red">腦丼大開</span> 的海味狂想！
         </h2>
         <p class="hero-desc">
@@ -1602,7 +1539,7 @@
         <div class="hero-features-strip">
           <div class="hero-feature-item">
             <span class="icon">🐟</span>
-            <span>每日 04:00 現撈直輸</span>
+            <span>每日 03:00 現撈直輸</span>
           </div>
           <div class="hero-feature-item">
             <span class="icon">🍚</span>
@@ -1615,9 +1552,9 @@
         </div>
       </div>
 
-      <!-- 招牌海鮮丼精緻向量視覺卡片 -->
-      <div class="hero-visual-card">
-        <img class="hero-photo" src="images/hero.jpg" width="400" height="300" alt="海港夕陽下的海景咖啡館">
+      <!-- 右欄圖片（依據 onepage1.md 規格：不使用 CSS 插畫，使用既有圖片） -->
+      <div class="hero-image-wrap">
+        <img class="hero-photo" src="images/hero.jpg" width="400" height="300" alt="腦丼大開 - 現撈極鮮海味">
       </div>
     </div>
   </section>
@@ -2203,7 +2140,7 @@
         </div>
 
         <div class="footer-col">
-          <h4>快速導覽</h4>
+          <h4>快速導覽頁</h4>
           <ul class="footer-links">
             <li><a href="#about">品牌起源與四大堅持</a></li>
             <li><a href="#menu">極鮮人氣海鮮丼菜單</a></li>
@@ -2250,7 +2187,7 @@
           © 2026 腦丼大開 NAO DON JAPANESE SEAFOOD BOWL. All Rights Reserved.
         </div>
         <div>
-          網頁製作依據規格：WebSpec_11515121/specs/outline.md
+          網頁製作依據規格：WebSpec_11515121/specs/onepage1.md
         </div>
       </div>
     </div>
